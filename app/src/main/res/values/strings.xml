@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Object Detection Template</string>
+    <string name="content_desc_logo">Logo for the application</string>
 </resources>
