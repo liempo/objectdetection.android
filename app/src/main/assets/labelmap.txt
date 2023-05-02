@@ -1,0 +1,11 @@
+Bus stop
+Give way
+Intersection
+No left turn
+No overtaking
+No parking
+No u-turn
+Parking
+Pedestrian
+Stop
+Warning

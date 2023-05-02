@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package wtf.liempo.objectdetectiontemplate.ui.views
+package wtf.liempo.objectdetectiontemplate.utils
 
 import android.content.Context
 import android.graphics.Canvas

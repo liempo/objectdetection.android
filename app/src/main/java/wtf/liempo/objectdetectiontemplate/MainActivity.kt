@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.camera.core.CameraSelector
+import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
@@ -22,7 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
-import com.example.compose.AppTheme
+import wtf.liempo.objectdetectiontemplate.ui.theme.AppTheme
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.PermissionRequired
 import com.google.accompanist.permissions.PermissionState
@@ -110,10 +111,16 @@ fun CameraPreview(
                         .requireLensFacing(CameraSelector.LENS_FACING_BACK)
                         .build()
 
+                    // Add ImageAnalysis here
+                    val imageAnalysis = ImageAnalysis.Builder()
+                        .build()
+                    imageAnalysis.setAnalyzer(executor, ObjectDetectorAnalyzer(ctx))
+
                     cameraProvider.unbindAll()
                     cameraProvider.bindToLifecycle(
                         lifecycleOwner,
                         cameraSelector,
+                        imageAnalysis,
                         preview
                     )
                 }, executor)
